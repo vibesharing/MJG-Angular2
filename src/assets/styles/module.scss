@@ -1,0 +1,43 @@
+.center-fix {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.main-spinner {
+    font-size: 3em;
+    color: color(primary);
+}
+
+as-professionals, as-professional {
+    .list {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        .professional {
+            background-color: #666;
+            border: 1px solid sandybrown;
+            margin: 1em;
+            padding: 1em;
+
+            .name {
+                text-align: center;
+                font-size: 1em;
+                font-weight: bold;
+            }
+            .sector {
+                text-align: center;
+                font-size: 0.5em;
+                font-weight: bold;
+            }
+            .position {
+                text-align: center;
+                font-size: 0.5em;
+                font-weight: bold;
+            }
+        }
+    }
+}
