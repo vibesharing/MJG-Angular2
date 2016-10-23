@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
 var Rx_1 = require("rxjs/Rx");
+var credentials_1 = require("../shared/constant/credentials");
 // Import RxJs required methods
 require("rxjs/add/operator/map");
 require("rxjs/add/operator/catch");
@@ -19,7 +20,7 @@ var ProfessionalsService = (function () {
         this._http = http;
     }
     ProfessionalsService.prototype.createAuthorizationHeader = function (headers) {
-        headers.append('Authorization', 'Basic ' + btoa('hadrien:wewantUatMJG!EOTAF'));
+        headers.append('Authorization', 'Basic ' + btoa(credentials_1.CREDENTIALS.hadrien.USER + ':' + credentials_1.CREDENTIALS.hadrien.PWD));
     };
     ProfessionalsService.prototype.getProfessionnals = function () {
         var headers = new http_1.Headers();
@@ -27,8 +28,8 @@ var ProfessionalsService = (function () {
         headers.append('Access-Control-Allow-Origin', '*');
         headers.append('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
         /*return this._http.get('https://dev.myjobglasses.com/professionals?page=1&format=json', {headers: headers})
-    .map(response => response.json())
-    .catch((error: any) => Observable.throw(error.json().error || 'Server error'));*/
+        .map(response => response.json())
+        .catch((error: any) => Observable.throw(error.json().error || 'Server error'));*/
         return this._http.get('./app/professionals/pro.json')
             .map(function (response) { return response.json(); })
             .catch(function (error) { return Rx_1.Observable.throw(error.json().error || 'Server error'); });

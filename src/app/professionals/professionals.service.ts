@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import {Observable} from 'rxjs/Rx';
 
+import { CREDENTIALS } from '../shared/constant/credentials';
+
 // Import RxJs required methods
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -16,7 +18,7 @@ export class ProfessionalsService {
     }
 
     public  createAuthorizationHeader(headers: Headers) {
-        headers.append('Authorization', 'Basic ' + btoa('hadrien:wewantUatMJG!EOTAF'));
+        headers.append('Authorization', 'Basic ' + btoa(CREDENTIALS.hadrien.USER + ':' + CREDENTIALS.hadrien.PWD));
     }
 
     public getProfessionnals(): Observable<any> {
@@ -25,7 +27,7 @@ export class ProfessionalsService {
         headers.append('Access-Control-Allow-Origin', '*');
         headers.append('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
 
-            /*return this._http.get('https://dev.myjobglasses.com/professionals?page=1&format=json', {headers: headers})
+        /*return this._http.get('https://dev.myjobglasses.com/professionals?page=1&format=json', {headers: headers})
         .map(response => response.json())
         .catch((error: any) => Observable.throw(error.json().error || 'Server error'));*/
 
