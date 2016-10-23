@@ -1,6 +1,6 @@
 export const CREDENTIALS = {
     hadrien: {
-        USER: 'hadrien',
-        PWD: 'wewantUatMJG!EOTAF'
+        USER: '', // username
+        PWD: '' // password
     }
 };
