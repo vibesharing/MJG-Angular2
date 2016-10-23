@@ -26,7 +26,7 @@ export class ProfessionalsService {
     public getProfessionnals(): Observable<any> {
         let headers = new Headers();
         this.createAuthorizationHeader(headers);
-        return this._http.get('https://dev.myjobglasses.com/professionals?page=1', {headers: headers})
+        return this._http.get('https://dev.myjobglasses.com/professionals?page=1&format=json', {headers: headers})
         .map(response => response.json())
         .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
 
