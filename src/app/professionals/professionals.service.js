@@ -20,34 +20,33 @@ var ProfessionalsService = (function () {
         this._http = http;
     }
     ProfessionalsService.prototype.createAuthorizationHeader = function (headers) {
+        console.log(credentials_1.CREDENTIALS.hadrien.USER + credentials_1.CREDENTIALS.hadrien.PWD);
         headers.append('Authorization', 'Basic ' + btoa(credentials_1.CREDENTIALS.hadrien.USER + ':' + credentials_1.CREDENTIALS.hadrien.PWD));
+        headers.append('Content-Type', 'application/x-www-form-urlencoded');
     };
     ProfessionalsService.prototype.getProfessionnals = function () {
         var headers = new http_1.Headers();
         this.createAuthorizationHeader(headers);
-        headers.append('Access-Control-Allow-Origin', '*');
-        headers.append('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-        /*return this._http.get('https://dev.myjobglasses.com/professionals?page=1&format=json', {headers: headers})
-        .map(response => response.json())
-        .catch((error: any) => Observable.throw(error.json().error || 'Server error'));*/
-        return this._http.get('./app/professionals/pro.json')
+        return this._http.get('https://dev.myjobglasses.com/professionals?page=1', { headers: headers })
             .map(function (response) { return response.json(); })
             .catch(function (error) { return Rx_1.Observable.throw(error.json().error || 'Server error'); });
+        /*return this._http.get('./app/professionals/pro.json')
+            .map(response => response.json())
+            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+            */
     };
     ProfessionalsService.prototype.getProfessional = function (id) {
-        return this._http.get('./app/professionals/pro.json')
-            .map(function (response) { return response.json(); })
-            .catch(function (error) { return Rx_1.Observable.throw(error.json().error || 'Server error'); });
-        /*
-        let headers = new Headers();
-        this.createAuthorizationHeader(headers);
-        headers.append('Access-Control-Allow-Origin', '*');
-        headers.append('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-
-        return this._http.get('https://dev.myjobglasses.com/professionals/'+ id + '&format=json', {headers: headers})
+        /*return this._http.get('./app/professionals/pro.json')
             .map(response => response.json())
             .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
         */
+        var headers = new http_1.Headers();
+        this.createAuthorizationHeader(headers);
+        headers.append('Access-Control-Allow-Origin', '*');
+        headers.append('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+        return this._http.get('https://dev.myjobglasses.com/professionals/' + id + '&format=json', { headers: headers })
+            .map(function (response) { return response.json(); })
+            .catch(function (error) { return Rx_1.Observable.throw(error.json().error || 'Server error'); });
     };
     return ProfessionalsService;
 }());
