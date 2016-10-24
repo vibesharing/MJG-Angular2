@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { ProfessionalsService } from './professionals.service';
+import { HttpService } from '../services/http.service';
 
 
 @Component({
@@ -11,11 +12,13 @@ import { ProfessionalsService } from './professionals.service';
 
 export class ProfessionalComponent implements OnInit {
   private _professionalsService: ProfessionalsService;
+  private _httpService: HttpService;
   private _router: Router;
   private route: ActivatedRoute;
   private _professional: any;
 
-  constructor( _activatedRoute: ActivatedRoute, professionalsService: ProfessionalsService, router: Router ) {
+  constructor( _activatedRoute: ActivatedRoute, professionalsService: ProfessionalsService, router: Router, httpService: HttpService ) {
+    this._httpService = httpService;
     this._professionalsService = professionalsService;
     this.route = _activatedRoute;
     this._router = router;
@@ -23,21 +26,11 @@ export class ProfessionalComponent implements OnInit {
 
   public ngOnInit(): void {
     const id: number = this.route.snapshot.params['id'];
-    this._professionalsService.getProfessional(id)
-      .subscribe(professionals => {
-        for (let i = 0; i < professionals.length; i++) {
-          if (professionals[i].id.$oid === id) {
-            this._professional = professionals[i];
-            break;
-          }
-        };
-    });
 
-    /*
-    .subscribe(professional => {
+    this._httpService.getProfessional(id).subscribe(professional => {
+      console.log(professional);
       this._professional = professional;
-    })
-     */
+    });
   }
 
   public goBack(): void {

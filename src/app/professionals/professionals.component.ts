@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProfessionalsService } from './professionals.service';
+import { HttpService } from '../services/http.service';
+
+
 
 @Component({
     selector: 'as-professionals',
@@ -8,16 +11,17 @@ import { ProfessionalsService } from './professionals.service';
 export class ProfessionalsComponent implements OnInit {
     private _professionalsService: ProfessionalsService;
     private _professionalsList: Array<any>;
+    private _httpService: HttpService;
 
-    constructor(professionalsService: ProfessionalsService) {
+    constructor(professionalsService: ProfessionalsService, httpService: HttpService ) {
         this._professionalsList = [];
         this._professionalsService = professionalsService;
+        this._httpService = httpService;
     }
 
     public ngOnInit(): void {
-        this._professionalsService.getProfessionnals().subscribe(response => {
-
-        this._professionalsList = response;
+        this._httpService.getProfessionnals().subscribe(response => {
+            this._professionalsList = response;
         });
     }
 }

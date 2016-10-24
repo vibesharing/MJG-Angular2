@@ -6,8 +6,5 @@
  * Property '<missing-key>' is missing in type '{}'
  *
  */
-
-export interface AppEnv {
-    APP_URL?: string;
-    API_url?: string;
-}
+"use strict";
+//# sourceMappingURL=env.model.js.map
