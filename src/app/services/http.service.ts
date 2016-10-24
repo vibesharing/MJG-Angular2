@@ -29,11 +29,12 @@ export class HttpService {
 
 
 
-    public getProfessionnals(): Observable<any> {
-
+    public getProfessionnals(page?: number): Observable<any> {
         this.createAuthorizationHeader();
+        console.log(page);
+        let pagenumber = page ? page : 1;
 
-        return this._http.get(this._basicUrl + 'professionals?page=1&format=json', {headers: this._headers})
+        return this._http.get(this._basicUrl + 'professionals?page=' + pagenumber + '&format=json', {headers: this._headers})
         .map(response => response.json())
         .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
      }

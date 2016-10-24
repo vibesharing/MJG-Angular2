@@ -1,9 +1,5 @@
- <div class="list" *ngIf="_professionalsList.length > 0">
-     <div class="col-md-3 col-sm-5 col-xs-12 professional" *ngFor="let professional of _professionalsList"
-            infinite-scroll
-            [infiniteScrollDistance]="1"
-            [infiniteScrollThrottle]="500"
-            (scrolled)="onScroll()" >
+<div class="list" *ngIf="_professionalsList.length > 0">
+     <div class="col-md-3 col-sm-5 col-xs-12 professional" *ngFor="let professional of _professionalsList">
          <div [routerLink]="['/professional', professional.id.$oid]">
          <div class="row name"> {{professional.company_name}}</div>
            <div class="row sector">{{professional.company_sector}}</div>
@@ -11,3 +7,15 @@
          </div>
      </div>
  </div>
+<div class="row" >
+     <button type="button" class="btn btn-default" *ngIf="!_showLoading" (click)="loadMore()">
+       load more ...
+     </button>
+
+     <div class="loader" *ngIf="_showLoading">
+       <div class="dot dot1"></div>
+       <div class="dot dot2"></div>
+       <div class="dot dot3"></div>
+       <div class="dot dot4"></div>
+     </div>
+</div>

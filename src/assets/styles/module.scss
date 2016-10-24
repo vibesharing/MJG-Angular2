@@ -13,15 +13,18 @@
 
 as-professionals, as-professional {
     .list {
+        min-height: 100em;
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
 
         .professional {
-            background-color: #666;
-            border: 1px solid sandybrown;
+            height: 15em;
+            background-color: #00B9EE;
+            border-bottom: 5px solid #FFA545;
+            border-radius: 5px;
             margin: 1em;
-            padding: 1em;
+            padding: 2em;
 
             .name {
                 text-align: center;
@@ -38,6 +41,73 @@ as-professionals, as-professional {
                 font-size: 0.5em;
                 font-weight: bold;
             }
+        }
+    }
+    .row {
+        button {
+            display: flex;
+            margin: auto;
+            margin-bottom: 1em;
+            border: 2px solid white;
+            background-color: #00B9EE;
+            color: #FFA545;
+            font-weight: bold;
+
+            &:hover {
+                background-color: #00B9EE;
+                color: #FFA545;
+                border: 2px solid white;
+            }
+        }
+
+        .loader {
+          font-size: 20px;
+          position: relative;
+          width: 4em;
+          height: 1em;
+          margin: 1em auto;
+        }
+
+        .dot {
+          width: 1em;
+          height: 1em;
+          border-radius: 0.5em;
+          background: #333;
+          position: absolute;
+          animation-duration: 0.5s;
+          animation-timing-function: ease;
+          animation-iteration-count: infinite;
+        }
+
+        .dot1, .dot2 {
+          left: 0;
+        }
+
+        .dot3 { left: 1.5em; }
+
+        .dot4 { left: 3em; }
+
+        @keyframes reveal {
+          from { transform: scale(0.001); }
+          to { transform: scale(1); }
+        }
+
+        @keyframes slide {
+          to { transform: translateX(1.5em) }
+        }
+
+
+        .dot1 {
+          animation-name: reveal;
+        }
+
+        .dot2, .dot3 {
+          animation-name: slide;
+        }
+
+        .dot4 {
+          animation-name: reveal;
+          animation-direction: reverse; /* thx @HugoGiraudel */
         }
     }
 }

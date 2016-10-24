@@ -23,7 +23,6 @@ var ProfessionalComponent = (function () {
         var _this = this;
         var id = this.route.snapshot.params['id'];
         this._httpService.getProfessional(id).subscribe(function (professional) {
-            console.log(professional);
             _this._professional = professional;
         });
     };

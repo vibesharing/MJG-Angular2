@@ -19,12 +19,27 @@ var ProfessionalsComponent = (function () {
     }
     ProfessionalsComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this.toggleLoadingInformation(true);
         this._httpService.getProfessionnals().subscribe(function (response) {
             _this._professionalsList = response;
+            _this._page = 2;
+            _this.toggleLoadingInformation(false);
         });
     };
-    ProfessionalsComponent.prototype.onScroll = function () {
-        console.log('done');
+    ProfessionalsComponent.prototype.loadMore = function () {
+        var _this = this;
+        this.toggleLoadingInformation(true);
+        this._httpService.getProfessionnals(this._page).subscribe(function (response) {
+            console.log(response);
+            setTimeout(function () {
+                _this._professionalsList = _this._professionalsList.concat(response);
+                _this.toggleLoadingInformation(false);
+            }, 1000);
+        });
+        this._page += 1;
+    };
+    ProfessionalsComponent.prototype.toggleLoadingInformation = function (isLoading) {
+        this._showLoading = isLoading;
     };
     return ProfessionalsComponent;
 }());

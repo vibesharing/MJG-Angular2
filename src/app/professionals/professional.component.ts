@@ -28,7 +28,6 @@ export class ProfessionalComponent implements OnInit {
     const id: number = this.route.snapshot.params['id'];
 
     this._httpService.getProfessional(id).subscribe(professional => {
-      console.log(professional);
       this._professional = professional;
     });
   }

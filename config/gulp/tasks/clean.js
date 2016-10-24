@@ -3,7 +3,7 @@ var config = require('../config')();
 var del = require('del');
 
 /* Run all clean tasks */
-gulp.task('clean', ['clean-build', 'clean-report', 'clean-ts', 'clean-sass']);
+gulp.task('clean', ['clean-build', 'clean-report', 'clean-ts', 'clean-sass', 'clean-app']);
 
 /* Clean build folder */
 gulp.task('clean-build', function () {
@@ -26,10 +26,15 @@ gulp.task('clean-ts', function () {
 });
 
 gulp.task('clean-ts-app', function () {
-    del([config.app]);
+
     return del([config.tmpApp]);
 });
 
 gulp.task('clean-ts-test', function () {
     return del([config.tmpTest]);
+});
+
+gulp.task('clean-app', function () {
+    del([config.app + '**/*.*.js.map']);
+    return del([config.app + '**/*.*.js']);
 });
