@@ -33,7 +33,6 @@ export class ProfessionalsComponent implements OnInit {
     public loadMore(): void {
         this.toggleLoadingInformation(true);
         this._httpService.getProfessionnals(this._page).subscribe(response => {
-            console.log(response);
             setTimeout(() => {
                 this._professionalsList = this._professionalsList.concat(response);
 
