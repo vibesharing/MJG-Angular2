@@ -11,7 +11,8 @@
     // map tells the System loader where to look for things
     var map = {
         'app': 'src/tmp/app',
-        'test': 'src/tmp/test'
+        'test': 'src/tmp/test',
+        'angular2-infinite-scroll': 'node_modules/angular2-infinite-scroll'
     };
 
     // packages tells the System loader how to load when no filename and/or no extension
@@ -24,14 +25,18 @@
         },
         'rxjs': {
             defaultExtension: 'js'
-        }
+        },
+        'angular2-infinite-scroll': {
+            defaultExtension: 'js'
+        },
     };
 
     // List npm packages here
     var npmPackages = [
         '@angular',
         'rxjs',
-        'lodash'
+        'lodash',
+        'angular2-infinite-scroll'
     ];
 
     // Add package entries for packages that expose barrels using index.js

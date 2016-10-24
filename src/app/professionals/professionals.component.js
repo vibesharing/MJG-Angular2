@@ -23,6 +23,9 @@ var ProfessionalsComponent = (function () {
             _this._professionalsList = response;
         });
     };
+    ProfessionalsComponent.prototype.onScroll = function () {
+        console.log('done');
+    };
     return ProfessionalsComponent;
 }());
 ProfessionalsComponent = __decorate([

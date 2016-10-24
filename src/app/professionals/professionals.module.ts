@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { ProfessionalsComponent, ProfessionalComponent, ProfessionalsService  } from './index';
 import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
+import { InfiniteScrollModule } from 'angular2-infinite-scroll/angular2-infinite-scroll';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { HttpModule } from '@angular/http';
         FormsModule,
         BrowserModule,
         RouterModule,
+        InfiniteScrollModule,
         HttpModule
     ],
     exports: [

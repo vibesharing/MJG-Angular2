@@ -6,6 +6,8 @@ import { appRoutingProviders, routing } from './app.routing';
 import { NavbarModule } from './shared';
 import { HomeModule } from './home/home.module';
 import { ProfessionalsModule } from './professionals/professionals.module';
+import { InfiniteScrollModule } from 'angular2-infinite-scroll/angular2-infinite-scroll';
+
 import { HttpModule } from '@angular/http';
 import { HttpService } from './services/http.service';
 
@@ -18,6 +20,7 @@ import { HttpService } from './services/http.service';
         HomeModule,
         ProfessionalsModule,
         HttpModule,
+        InfiniteScrollModule,
         routing
     ],
     providers: [ APP_PROVIDERS, appRoutingProviders, HttpService ],

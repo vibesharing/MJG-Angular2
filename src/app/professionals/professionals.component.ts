@@ -24,4 +24,8 @@ export class ProfessionalsComponent implements OnInit {
             this._professionalsList = response;
         });
     }
+
+    public onScroll(): void {
+        console.log('done');
+    }
 }

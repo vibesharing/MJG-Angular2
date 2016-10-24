@@ -15,6 +15,7 @@ var app_routing_1 = require("./app.routing");
 var shared_1 = require("./shared");
 var home_module_1 = require("./home/home.module");
 var professionals_module_1 = require("./professionals/professionals.module");
+var angular2_infinite_scroll_1 = require("angular2-infinite-scroll/angular2-infinite-scroll");
 var http_1 = require("@angular/http");
 var http_service_1 = require("./services/http.service");
 var AppModule = (function () {
@@ -32,6 +33,7 @@ AppModule = __decorate([
             home_module_1.HomeModule,
             professionals_module_1.ProfessionalsModule,
             http_1.HttpModule,
+            angular2_infinite_scroll_1.InfiniteScrollModule,
             app_routing_1.routing
         ],
         providers: [app_providers_1.APP_PROVIDERS, app_routing_1.appRoutingProviders, http_service_1.HttpService],

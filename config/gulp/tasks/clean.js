@@ -26,6 +26,7 @@ gulp.task('clean-ts', function () {
 });
 
 gulp.task('clean-ts-app', function () {
+    del([config.app]);
     return del([config.tmpApp]);
 });
 
