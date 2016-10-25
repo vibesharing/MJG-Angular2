@@ -4,6 +4,8 @@ Starter from 'https://github.com/antonybudianto/angular2-starter'
 
 1) npm install
 
+On Branch dev
+
 2) Change credentials in the following folder: src/app/shared/constant/credentials.ts
 
 2) npm start
