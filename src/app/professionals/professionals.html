@@ -2,8 +2,8 @@
      <div class="col-md-3 col-sm-5 col-xs-12 professional" *ngFor="let professional of _professionalsList">
          <div [routerLink]="['/professional', professional.id.$oid]">
          <div class="row name"> {{professional.company_name}}</div>
-           <div class="row sector">{{professional.company_sector}}</div>
-            <div class="row position">{{professional.position}}</div>
+         <div class="row sector">{{professional.company_sector}}</div>
+         <div class="row position">{{professional.position}}</div>
          </div>
      </div>
  </div>
@@ -11,7 +11,6 @@
      <button type="button" class="btn btn-default" *ngIf="!_showLoading" (click)="loadMore()">
        load more ...
      </button>
-
      <div class="loader" *ngIf="_showLoading">
        <div class="dot dot1"></div>
        <div class="dot dot2"></div>

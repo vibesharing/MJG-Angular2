@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { ProfessionalsService } from './professionals.service';
 import { HttpService } from '../services/http.service';
 
 
@@ -11,15 +10,13 @@ import { HttpService } from '../services/http.service';
 })
 
 export class ProfessionalComponent implements OnInit {
-  private _professionalsService: ProfessionalsService;
   private _httpService: HttpService;
   private _router: Router;
   private route: ActivatedRoute;
   private _professional: any;
 
-  constructor( _activatedRoute: ActivatedRoute, professionalsService: ProfessionalsService, router: Router, httpService: HttpService ) {
+  constructor( _activatedRoute: ActivatedRoute, router: Router, httpService: HttpService ) {
     this._httpService = httpService;
-    this._professionalsService = professionalsService;
     this.route = _activatedRoute;
     this._router = router;
   }

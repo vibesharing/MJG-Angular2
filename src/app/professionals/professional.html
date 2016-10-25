@@ -1,13 +1,13 @@
 <div class="row">
+  <button class="btn" type="button" name="button" (click)='goBack($event)'>Go back</button>
   <div class="col-sm-4">
-    <button class="btn" type="button" name="button" (click)='goBack($event)'>Go back</button>
     <div class="list" *ngIf="_professional">
       <div class="professional">
-      <div class="row name"> {{_professional.company_name}}</div>
-      <div class="row sector">{{_professional.company_sector}}</div>
-      <div class="row position">{{_professional.position}}</div>
-      <div class="row position">{{_professional.description}}</div>
-      <div>
+        <div class="row name"> {{_professional.company_name}}</div>
+        <div class="row sector">{{_professional.company_sector}}</div>
+        <div class="row position">{{_professional.position}}</div>
+        <div class="row position">{{_professional.description}}</div>
+      </div>
     </div>
- </div>
+  </div>
 </div>
