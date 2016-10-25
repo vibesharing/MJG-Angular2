@@ -9,9 +9,6 @@ Starter from 'https://github.com/antonybudianto/angular2-starter'
 2) npm start
 
 
-Important: http request is not working: 
-
-Message error:
-https://dev.myjobglasses.com/professionals?page=1&format=json Failed to load resource: the server responded with a status of 404 (Not Found)
-XMLHttpRequest cannot load https://dev.myjobglasses.com/professionals?page=1&format=json.
-Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'http://localhost:3000' is therefore not allowed access. The response had HTTP status code 404.
+Limitations:  
+- issue with https://www.npmjs.com/package/angular2-infinite-scroll making too many requests
+- button to load extra professionals
